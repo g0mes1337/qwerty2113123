@@ -41,22 +41,24 @@ class PDO_ extends PDO
 
     function getToken($mail)
     {
-        $query = $this->prepare("SELECT `mail`, `password` FROM `user` WHERE mail=:mail");
+        $query = $this->prepare("SELECT mail, password FROM user WHERE mail=:mail");
         $query->bindParam(':mail', $mail, PDO::PARAM_STR);
         $query->execute();
         $row = $query->fetch(PDO::FETCH_ASSOC);
         if ($row != null) {
-            return $row[0]['password'];
+            return $row['password'];
         } else return "";
     }
 
     function getUserPass($password, $token)
     {
+
         return password_verify($password, $token);
     }
 
     function checkUserPass($mail, $password)
     {
+
         return $this->getUserPass($password, $this->getToken($mail));
     }
 
@@ -67,8 +69,6 @@ class PDO_ extends PDO
             if ($this->checkUserPass($mail, $password) == true) {
                 $_SESSION['mail'] = $mail;
                 $_SESSION['password'] = $password;
-                var_dump($_SESSION);
-                echo "<script>location.reload();</script>";
             } else return false;
         } else return true;
     }

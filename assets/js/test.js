@@ -1,4 +1,3 @@
-alert('qewrqwer');
 function request(target, body, callback) {
     const request = new XMLHttpRequest();
     request.open("POST", "/" + target, true);
@@ -29,8 +28,20 @@ function SignUp(form) {
 function LogIn(form) {
     request('application/action/logIn.php',
         {
-            ['mail']: form.mail.value,
-            ['password']: form.password.value
+            ['mail']: form.mail_confirm.value,
+            ['password']: form.password_confirm.value
+        }, function (status, responseText) {
+            if (status === 200) {
+                // window.location.href = '/';
+            } else {
+                console.log(responseText);
+                alert(JSON.parse(responseText)['issueMessage']);
+            }
+        })
+}
+function LogOut() {
+    request('application/action/logOut.php',
+        {
         }, function (status, responseText) {
             if (status === 200) {
                 // window.location.href = '/';
