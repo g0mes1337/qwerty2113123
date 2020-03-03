@@ -24,9 +24,11 @@ class PDO_ extends PDO
     function SignUp($mail, $password)
     {
         $root = $this->addAdmin($mail, $password);
-        $query = $this->prepare("INSERT INTO `user`( `mail`, `password`,`root`) VALUES (:mail,:password,`$root`)");
+        $password = password_hash($password, PASSWORD_BCRYPT);
+        $query = $this->prepare("INSERT INTO `user` (`mail`, `password`, `root`) VALUES (:mail,:password,:root)");
         $query->bindParam(':mail', $mail, PDO::PARAM_STR);
         $query->bindParam(':password', $password, PDO::PARAM_STR);
+        $query->bindParam(':root', $root, PDO::PARAM_STR);
         $query->execute();
     }
 
@@ -65,11 +67,16 @@ class PDO_ extends PDO
             if ($this->checkUserPass($mail, $password) == true) {
                 $_SESSION['mail'] = $mail;
                 $_SESSION['password'] = $password;
+                var_dump($_SESSION);
                 echo "<script>location.reload();</script>";
             } else return false;
         } else return true;
     }
 
+    function logOut()
+    {
+        session_destroy();
+    }
 
     function deleteUser($id_user)
     {
