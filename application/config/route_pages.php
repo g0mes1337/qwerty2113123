@@ -14,6 +14,12 @@ $pages = [
     ],
     'lk'=>[
         'link'=>'lk.html'
+    ],
+    'header_footer'=>[
+        'link'=>'header_footer.html'
+    ],
+    'courses'=>[
+        'link'=>'courses.html'
     ]
 
 ];

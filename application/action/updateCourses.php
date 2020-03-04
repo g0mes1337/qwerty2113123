@@ -4,7 +4,7 @@ $pdo = new PDO_();
 
 $request = json_decode(file_get_contents("php://input"), true);
 try {
-    $pdo->addCourses($request['title'],$request['description'],$request['price'],$request['date_courses']);
+    $pdo->updateCourses($request['title'],$request['description'],$request['price'],$request['date_courses']);
 }
 catch (PDOException $exception){
     print $exception;
