@@ -17,7 +17,7 @@ function SignUp(form) {
             ['password']: form.password.value
         }, function (status, responseText) {
             if (status === 200) {
-               // window.location.href = '/';
+                // window.location.href = '/';
             } else {
                 console.log(responseText);
                 alert(JSON.parse(responseText)['issueMessage']);
@@ -39,9 +39,15 @@ function LogIn(form) {
             }
         })
 }
-function LogOut() {
-    request('application/action/logOut.php',
+
+
+function addCourses(form) {
+    request('application/action/addCourses.php',
         {
+            ['title']: form.title.value,
+            ['description']: form.description.value,
+            ['date_courses']:form.date_courses.value,
+            ['price']:form.price.value
         }, function (status, responseText) {
             if (status === 200) {
                 // window.location.href = '/';
@@ -51,4 +57,3 @@ function LogOut() {
             }
         })
 }
-
