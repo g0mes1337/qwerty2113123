@@ -5,7 +5,7 @@ $pdo = new PDO_();
 $request = json_decode(file_get_contents("php://input"), true);
 var_dump($request);
 try {
-    $pdo->SignUp($request['mail'],$request['password']);
+    $pdo->getCourses();
 }
 catch (PDOException $exception){
     print $exception;

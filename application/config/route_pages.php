@@ -1,25 +1,36 @@
 <?php
 $pages = [
     '' => [
-        'link' => 'main.html'
+        'title' => 'Главная',
+        'link' => 'main.html',
+        'scripts' => ['test']
     ],
-    'about'=>[
-        'link'=>'about.html'
+    'about' => [
+        'title' => 'О Нас',
+        'link' => 'about.html'
     ],
-    'contact'=>[
-        'link'=>'contact.html'
+    'contact' => [
+        'title' => 'Контакты',
+        'link' => 'contact.html'
     ],
-    'admin'=>[
-        'link'=>'admin.html'
+    'admin' => [
+        'title' => 'Панель администратора',
+        'link' => 'admin.html',
+        'scripts' => ['admin_panel']
     ],
-    'lk'=>[
-        'link'=>'lk.html'
+    'lk' => [
+        'title' => 'Личный кабинет',
+        'link' => 'lk.html',
     ],
-    'header_footer'=>[
-        'link'=>'header_footer.html'
+    'courses' => [
+        'title' => 'Курсы',
+        'link' => 'courses.html',
+        'scripts' => ['courses_input']
+
     ],
-    'courses'=>[
-        'link'=>'courses.html'
+    '404' => [
+        'title' => 'Не найдено',
+        'link' => '404.html'
     ]
 
 ];
