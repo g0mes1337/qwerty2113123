@@ -11,7 +11,9 @@ $pages = [
     ],
     'contact' => [
         'title' => 'Контакты',
-        'link' => 'contact.html'
+        'link' => 'contact.html',
+        'scripts' => ['admin_panel']
+
     ],
     'admin' => [
         'title' => 'Панель администратора',
@@ -25,7 +27,7 @@ $pages = [
     'courses' => [
         'title' => 'Курсы',
         'link' => 'courses.html',
-        'scripts' => ['courses_input']
+        'scripts' => ['get_courses']
 
     ],
     '404' => [
