@@ -5,7 +5,6 @@ $pdo = new PDO_();
 $request = json_decode(file_get_contents("php://input"), true);
 try {
     $pdo->logIn($request['mail'],$request['password']);
-    var_dump($_SESSION);
 }
 catch (PDOException $exception){
     print $exception;

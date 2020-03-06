@@ -73,11 +73,6 @@ class PDO_ extends PDO
         } else return true;
     }
 
-    function logOut()
-    {
-        session_destroy();
-    }
-
     function deleteUser($id_user)
     {
         $query = $this->prepare("DELETE FROM `user` WHERE id_user=:id_user");
@@ -120,6 +115,14 @@ class PDO_ extends PDO
         $query->bindParam(':date_courses', $date_courses, PDO::PARAM_STR);
         $query->bindParam(':price', $price, PDO::PARAM_STR);
         $query->execute();
+    }
+
+    function getUserId($mail)
+    {
+        $query = $this->prepare("SELECT id_user FROM user WHERE mail=:mail");
+        $query->bindParam(':mail', $mail, PDO::PARAM_STR);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
     function getCourse($id_courses)

@@ -11,28 +11,24 @@ $pages = [
     ],
     'contact' => [
         'title' => 'Контакты',
-        'link' => 'contact.html',
-        'scripts' => ['admin_panel']
-
+        'link' => 'contact.html'
     ],
     'admin' => [
         'title' => 'Панель администратора',
         'link' => 'admin.html',
-        'scripts' => ['admin_panel']
+        'scripts' => ['admin_panel','test']
     ],
     'lk' => [
         'title' => 'Личный кабинет',
-        'link' => 'lk.html',
+        'link' => 'lk.html'
     ],
     'courses' => [
         'title' => 'Курсы',
         'link' => 'courses.html',
-        'scripts' => ['get_courses']
-
+        'scripts' => ['courses_input','test']
     ],
     '404' => [
         'title' => 'Не найдено',
         'link' => '404.html'
     ]
-
 ];
